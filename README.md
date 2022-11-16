@@ -79,7 +79,7 @@ Is it possible to generate the **x.generated.h** and **Definitions.x.h** files w
 The **AExampleTestRealViewModelFromLibs** complains about a missing **AExampleTestRealViewModelFromLibs.sym** file. Is there any way for us to generate this file? Or is there any configuration we can do to ignore the existence of this? Is the file only containing debug symbols, or what is it used for?
 
 ## Segfault when trying to build tests that include Actors.
-**AExampleTestRealViewModelFromLibs** gets segmentation fault. Seems like we can't crate UObjects from tests.
+**AExampleTestRealViewModelFromLibs** gets segmentation fault. Seems like we can't create UObjects from tests.
 
 ## Is it possible to hook up to the Broadcast programatically?
 In **AExampleViewModel.cpp** we do a `OnAExampleUpdated.Broadcast(AExampleState)`. If we would get the **AExampleTestRealViewModel** to execute correctly, would it be possible for us to hook up to that broadcast in our test? That would be great for us since that would enable us to easily test the interface between our Cpp code and the game world.
