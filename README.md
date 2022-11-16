@@ -38,6 +38,38 @@ Linking problems
 ### AExampleTestRealViewModelFromLibs
 This test tries to use the prebuilt ModuleA and ModuleB libs
 
+Run this test
+```
+./Unit/AExampleTestRealViewModelFromLibs/AExampleTestRealViewModelFromLibs
+```
+
+Fails when running with 
+```
+Failed to find symbol file, expected location:
+"/home/pmattss6/repos/testbooos/unreal_cmake_gtest_linux/cmake_gtest/Test/build/Unit/AExampleTestRealViewModelFromLibs/AExampleTestRealViewModelFromLibs.sym"
+Fatal error: [File:/home/jramstra/unreal/perforce/Partner-Freya-QNX-4.25/Engine/Source/Runtime/CoreUObject/Private/UObject/UObjectGlobals.cpp] [Line: 2522] 
+None is not being constructed with NewObject.
+fish: “./AExampleTestRealViewModelFrom…” terminated by signal SIGSEGV (Address boundary error)
+```
+
+Call stack
+```
+libUE4Editor-Core.so!FOutputDevice::LogfImpl(char16_t const*, ...) (Unknown Source:0)
+libUE4Editor-CoreUObject.so!UObject::UObject() (Unknown Source:0)
+AExampleTest_JustForShow_Test::TestBody() (Unknown Source:0)
+void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (Unknown Source:0)
+void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (Unknown Source:0)
+testing::Test::Run() (Unknown Source:0)
+testing::TestInfo::Run() (Unknown Source:0)
+testing::TestSuite::Run() (Unknown Source:0)
+testing::internal::UnitTestImpl::RunAllTests() (Unknown Source:0)
+bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (Unknown Source:0)
+bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (Unknown Source:0)
+testing::UnitTest::Run() (Unknown Source:0)
+RUN_ALL_TESTS() (Unknown Source:0)
+main (Unknown Source:0)
+```
+
 ---
 ## Our questions
 ## Generating x.generated.h and Definitions.x.h files
