@@ -13,3 +13,4 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../external/googletest ${CMAKE_C
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestFakeMockedViewModel) # Working
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestGMockedViewModel) # Building. Not finding sym file. Terminated by signal SIGSEGV (Address boundary error)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModel) # Building. Terminated by signal SIGSEGV (Address boundary error)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModelFromLibs)

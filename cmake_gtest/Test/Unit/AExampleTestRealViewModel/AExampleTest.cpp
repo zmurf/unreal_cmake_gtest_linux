@@ -5,21 +5,24 @@
 
 // Including Mock version of Comm
 #include "Comm.h"
+#include "CommMock.h"
 
 #include "AExample.h"
 #include "AExampleModel.h"
+
+#include "Templates/UniquePtr.h"
 
 #include <gtest/gtest.h>
 
 TEST(AExampleTest, JustForShow)
 {
-    FComm CommMock{};
-
+    TUniquePtr<FCommMock> CommMock = MakeUnique<FCommMock>();
     SubscriptionFunction CallBack{};
-    EXPECT_CALL(CommMock, Subscribe(testing::_))
+    EXPECT_CALL(*CommMock, Subscribe(testing::_))
             .WillOnce(DoAll(SaveArg<0>(&CallBack)));
 
-    FAExample AExample{CommMock};
+    FAExample AExample{*CommMock};
+
     AAExampleViewModel AExampleViewModel{};
     FAExampleModel AExampleModel{AExample, &AExampleViewModel};
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Defines.h"
 #include "Types.h"
 #include "Containers/Array.h"
 
@@ -14,7 +15,7 @@ public:
     FComm(FComm &&) = delete;
     virtual ~FComm() = default;
 
-    void Subscribe(SubscriptionFunction Callback);
+    virtual void Subscribe(SubscriptionFunction Callback);
 
 private:
     TArray<SubscriptionFunction> Subscriptions;
