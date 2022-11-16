@@ -2,7 +2,7 @@
 #include "Defines.h"
 
 // Including Mock version of AExampleViewModel
-#include "AExampleViewModelMock.h"
+#include "AExampleViewModel.h"
 // Including Mock version of Comm
 #include "Comm.h"
 #include "CommMock.h"
@@ -20,15 +20,13 @@ TEST(AExampleTestNoMockedViewModel, JustForShow)
             .WillOnce(DoAll(SaveArg<0>(&CallBack)));
 
     FAExample AExample{*CommMock};
-    
-    UObject Outer{};
-    auto AExampleViewModelMock = NewObject<AAExampleViewModelMock>(&Outer, AAExampleViewModelMock::StaticClass());
-    FAExampleModel AExampleModel{AExample, AExampleViewModelMock};
+    AAExampleViewModel AExampleViewModelMock{};
+    FAExampleModel AExampleModel{AExample, &AExampleViewModelMock};
 
     FAExampleStruct const ExpectedResult{15,18};
 
     FAExampleStruct Result{};
-    EXPECT_CALL(*AExampleViewModelMock, SetState(testing::_)).WillOnce(DoAll(SaveArg<0>(&Result)));
+    EXPECT_CALL(AExampleViewModelMock, SetState(testing::_)).WillOnce(DoAll(SaveArg<0>(&Result)));
     
     CallBack({15,18});
 

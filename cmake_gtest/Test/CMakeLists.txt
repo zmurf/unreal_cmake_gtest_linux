@@ -11,6 +11,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-O0")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../external/googletest ${CMAKE_CURRENT_BINARY_DIR}/googletest)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestFakeMockedViewModel) # Working
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestGMockedViewModel) # Building. Not finding sym file. Terminated by signal SIGSEGV (Address boundary error)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModel) # Building. Terminated by signal SIGSEGV (Address boundary error)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModelFromLibs)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestFakeMockedViewModelFromLibs) # # Building. Not working
+# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestGMockedViewModel) # Linking problems
+# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModel) # Linking problems
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/Unit/AExampleTestRealViewModelFromLibs) # Building. Missing sym file. Not able to create UObjects.

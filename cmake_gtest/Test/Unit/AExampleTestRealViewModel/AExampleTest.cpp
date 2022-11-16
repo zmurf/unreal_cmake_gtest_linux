@@ -23,8 +23,9 @@ TEST(AExampleTest, JustForShow)
 
     FAExample AExample{*CommMock};
 
-    AAExampleViewModel AExampleViewModel{};
-    FAExampleModel AExampleModel{AExample, &AExampleViewModel};
+    UObject Outer{};
+    auto AExampleViewModel = NewObject<AAExampleViewModel>(&Outer, AAExampleViewModel::StaticClass());
+    FAExampleModel AExampleModel{AExample, AExampleViewModel};
 
     FAExampleStruct const ExpectedResult{15,18};
     

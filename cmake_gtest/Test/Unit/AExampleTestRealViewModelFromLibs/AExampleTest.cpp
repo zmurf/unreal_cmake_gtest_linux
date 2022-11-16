@@ -12,9 +12,20 @@
 
 #include "Templates/UniquePtr.h"
 
+#include "Kismet/BlueprintFunctionLibrary.h"
+// #include "Engine/World.h"
+// #include "GameFramework/Actor.h"
+
 #include <gtest/gtest.h>
 
-TEST(AExampleTest, JustForShow)
+class AExampleTest : public testing::Test
+{
+public:
+    AExampleTest(){}
+};
+
+
+TEST_F(AExampleTest, JustForShow)
 {
     TUniquePtr<FCommMock> CommMock = MakeUnique<FCommMock>();
     SubscriptionFunction CallBack{};
@@ -23,10 +34,12 @@ TEST(AExampleTest, JustForShow)
 
     FAExample AExample{*CommMock};
 
-    AAExampleViewModel* AExampleViewModel = NewObject<AAExampleViewModel>();
-    FAExampleModel AExampleModel{AExample, AExampleViewModel};
-
-    FAExampleStruct const ExpectedResult{15,18};
+    // UObject* Outer = (UObject*)GetTransientPackage();
+    UObject Outer{};
+    auto AExampleViewModel = NewObject<AAExampleViewModel>(&Outer, AAExampleViewModel::StaticClass());
+        
+    // FAExampleModel AExampleModel{AExample, AExampleViewModel};
+    // FAExampleStruct const ExpectedResult{15,18};
     
-    CallBack({15,18});
+    // CallBack({15,18});
 }
