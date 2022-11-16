@@ -55,6 +55,7 @@ fish: “./AExampleTestRealViewModelFrom…” terminated by signal SIGSEGV (Add
 Call stack
 ```
 libUE4Editor-Core.so!FOutputDevice::LogfImpl(char16_t const*, ...) (Unknown Source:0)
+libUE4Editor-CoreUObject.so![Unknown/Just-In-Time compiled code] (Unknown Source:0)
 libUE4Editor-CoreUObject.so!UObject::UObject() (Unknown Source:0)
 AExampleTest_JustForShow_Test::TestBody() (Unknown Source:0)
 void testing::internal::HandleSehExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (Unknown Source:0)
